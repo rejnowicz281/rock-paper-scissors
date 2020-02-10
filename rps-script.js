@@ -51,3 +51,25 @@ function playRound(playerSelection, computerSelection) {
     alert("There's been a mistake.");
   }
 }
+
+function game() {
+  let rounds = 0;
+  while (rounds < 5) {
+    rounds++;
+    let select = prompt("Rock, Paper, Scissors?");
+    select = select.charAt(0).toUpperCase() + select.slice(1).toLowerCase();
+    playRound(select, computerPlay());
+
+    if (rounds == 5) {
+      if (playerPoints > computerPoints) {
+        alert(`Player wins the game with a score of ${playerPoints} to ${computerPoints}!`)
+      } else if (computerPoints > playerPoints) {
+        alert(`Computer wins the game with a score of ${computerPoints} to ${playerPoints}!`)
+      } else {
+        alert(`There is no winner! ${playerPoints} - ${computerPoints} It's a DRAW!`);
+      }
+    }
+  }
+}
+
+game();
